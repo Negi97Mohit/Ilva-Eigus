@@ -224,6 +224,91 @@
   }
 }
 
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1px;
+  background-color: var(--ink);
+  padding: 1rem 2rem;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--paper);
+  transition: transform 400ms var(--ease-editorial),
+    background-color 400ms var(--ease-editorial),
+    box-shadow 400ms var(--ease-editorial);
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: color-mix(in oklab, var(--ink) 92%, black);
+    box-shadow: 0 12px 28px -12px color-mix(in oklab, var(--ink) 35%, transparent);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1px;
+  border: 1px solid var(--ink);
+  background-color: transparent;
+  padding: 1rem 2rem;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink);
+  transition: transform 400ms var(--ease-editorial),
+    background-color 400ms var(--ease-editorial),
+    color 400ms var(--ease-editorial);
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility link-detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  border-bottom: 1px solid color-mix(in oklab, var(--ink) 25%, transparent);
+  padding-bottom: 0.15rem;
+  transition: border-color 400ms var(--ease-editorial),
+    color 400ms var(--ease-editorial);
+
+  &:hover {
+    border-bottom-color: var(--accent-bronze);
+    color: var(--accent-bronze);
+  }
+
+  & .link-arrow {
+    transition: transform 400ms var(--ease-editorial);
+  }
+
+  &:hover .link-arrow {
+    transform: translateX(4px);
+  }
+}
+
 @keyframes editorial-rise {
   from {
     opacity: 0;
