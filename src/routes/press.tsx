@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
-import pressHero from "@/assets/gallery/g7.jpg";
+import pressHero from "../assets/gallery/g7.jpg";
 import { press } from "@/data/site";
 
 export const Route = createFileRoute("/press")({

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHero } from "@/components/PageHero";
-import galleryHero from "@/assets/gallery/g4.jpg";
+
 
 const images = Object.entries(
   import.meta.glob<{ default: string }>("../assets/gallery/*.jpg", {
@@ -10,6 +10,8 @@ const images = Object.entries(
 )
   .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
   .map(([, mod]) => mod.default);
+
+const galleryHero = images[3];
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
