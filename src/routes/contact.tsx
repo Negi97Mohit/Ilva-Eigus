@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { PageHero } from "@/components/PageHero";
+
 import contactHero from "@/assets/portrait-2.jpg";
 import { supporters } from "@/data/site";
 
@@ -59,14 +59,46 @@ function ContactPage() {
 
   return (
     <>
-      <PageHero
-        image={contactHero}
-        title="Get in touch"
-        eyebrow="Contact"
-        alt="Portrait of Ilva Eigus"
-        lede="Bookings, press requests and general enquiries."
-        meta="Enquiries"
-      />
+      <section className="bg-ink text-paper">
+        <div className="shell grid items-center gap-10 py-16 md:grid-cols-12 md:gap-16 md:py-24">
+          <div className="md:col-span-7">
+            <p className="eyebrow rise mb-5 text-paper/50">Contact</p>
+            <h1 className="rise display-xl text-balance">Get in touch</h1>
+            <p className="rise lede mt-8 max-w-[46ch] text-paper/70">
+              Bookings, press requests and general enquiries.
+            </p>
+            <div className="mt-10 grid gap-6 border-t border-paper/15 pt-6 sm:grid-cols-2">
+              <div>
+                <p className="eyebrow mb-2 text-paper/40">Email</p>
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="text-sm text-paper/85 underline-offset-4 hover:underline"
+                >
+                  {EMAIL}
+                </a>
+              </div>
+              <div>
+                <p className="eyebrow mb-2 text-paper/40">Based in</p>
+                <p className="text-sm text-paper/85">Zürich, Switzerland</p>
+              </div>
+            </div>
+          </div>
+
+          <figure className="md:col-span-5">
+            <div className="mx-auto w-full max-w-[420px] overflow-hidden border border-paper/10 bg-paper/5">
+              <img
+                src={contactHero}
+                alt="Portrait of Ilva Eigus"
+                className="settle block h-auto w-full object-contain grayscale"
+              />
+            </div>
+            <figcaption className="mt-4 text-center text-xs uppercase italic tracking-widest text-paper/35">
+              Enquiries
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
 
       <section className="shell section-y grid gap-14 lg:grid-cols-12 lg:gap-20">
         <div className="lg:col-span-7">
