@@ -16,10 +16,9 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [peek, setPeek] = useState(false);
   const lastY = useRef(0);
 
-  /* Auto-hide on scroll down, reveal on scroll up. */
+  /* Auto-hide the trigger on scroll down, reveal on scroll up. */
   useEffect(() => {
     lastY.current = window.scrollY;
     let ticking = false;
@@ -42,13 +41,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Pointer near the left edge brings the rail back. */
-  useEffect(() => {
-    const onMove = (e: PointerEvent) => setPeek(e.clientX < 90);
-    window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
-  }, []);
-
   useEffect(() => {
     if (open) setHidden(false);
   }, [open]);
@@ -60,109 +52,91 @@ export function SiteHeader() {
     };
   }, [open]);
 
-  const away = hidden && !peek && !open;
-  const initials = site.name
-    .split(" ")
-    .map((w) => w[0])
-    .join("");
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <>
-      {/* Vertical rail — desktop */}
-      <aside
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
         className={[
-          "fixed left-0 top-0 z-50 hidden h-svh w-[76px] flex-col items-center justify-between",
-          "border-r border-paper/10 bg-ink/85 py-7 text-paper backdrop-blur-xl",
-          "transition-transform duration-700 ease-editorial md:flex",
-          away ? "-translate-x-full" : "translate-x-0",
+          "group fixed right-5 top-5 z-70 flex h-12 w-12 flex-col items-center justify-center gap-[6px]",
+          "rounded-full border border-paper/25 bg-ink/40 text-paper backdrop-blur-md",
+          "transition-[transform,opacity,background-color] duration-500 ease-editorial",
+          "hover:bg-ink/70 sm:right-8 sm:top-8",
+          hidden && !open ? "-translate-y-24 opacity-0" : "translate-y-0 opacity-100",
         ].join(" ")}
       >
-        <Link
-          to="/"
-          aria-label={site.name}
-          className="font-display text-lg leading-none tracking-tighter transition-colors hover:text-accent-bronze"
-        >
-          {initials}
-        </Link>
-
-        <nav className="flex flex-1 flex-col items-center justify-center gap-4">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              activeOptions={{ exact: l.to === "/" }}
-              className="eyebrow relative flex items-center justify-center px-2 py-3 text-paper/45 transition-colors duration-300 hover:text-paper"
-              activeProps={{ className: "text-paper" }}
-              style={{ writingMode: "vertical-rl" }}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
         <span
-          className="index-num uppercase text-paper/30"
-          style={{ writingMode: "vertical-rl" }}
-        >
-          {site.tagline}
-        </span>
-      </aside>
-
-      {/* Mobile bar */}
-      <header
-        className={[
-          "fixed left-0 top-0 z-50 flex w-full items-center justify-between",
-          "border-b border-paper/10 bg-ink/85 px-5 py-3 text-paper backdrop-blur-xl",
-          "transition-transform duration-500 ease-editorial md:hidden",
-          hidden && !open ? "-translate-y-full" : "translate-y-0",
-        ].join(" ")}
-      >
-        <Link to="/" className="font-display text-lg leading-none tracking-tighter">
-          {site.name.toUpperCase()}
-        </Link>
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="group -mr-1 flex h-9 w-9 flex-col items-end justify-center gap-[5px]"
-          aria-label="Open menu"
-        >
-          <span className="block h-px w-6 bg-current transition-all duration-300" />
-          <span className="block h-px w-4 bg-current transition-all duration-300 group-hover:w-6" />
-        </button>
-      </header>
+          className={[
+            "block h-px w-5 bg-current transition-transform duration-400 ease-editorial",
+            open ? "translate-y-[3.5px] rotate-45" : "",
+          ].join(" ")}
+        />
+        <span
+          className={[
+            "block h-px w-5 bg-current transition-transform duration-400 ease-editorial",
+            open ? "-translate-y-[3.5px] -rotate-45" : "",
+          ].join(" ")}
+        />
+      </button>
 
       {open && (
-        <div className="fixed inset-0 z-60 flex flex-col overflow-y-auto bg-ink/95 px-5 py-5 text-paper backdrop-blur-2xl sm:px-8 sm:py-6">
-          <div className="flex items-center justify-between border-b border-paper/15 pb-3 sm:pb-4">
-            <span className="font-display text-lg leading-none tracking-tighter sm:text-xl">
-              {site.name.toUpperCase()}
-            </span>
-            <button
-              type="button"
+        <div className="fixed inset-0 z-60 flex flex-col overflow-y-auto bg-ink/45 text-paper backdrop-blur-2xl">
+          <div className="shell flex min-h-svh flex-col py-6 sm:py-8">
+            <Link
+              to="/"
               onClick={() => setOpen(false)}
-              className="eyebrow rounded-full border border-paper/20 px-4 py-2 transition-colors hover:bg-paper/10"
-              aria-label="Close menu"
+              className="font-display text-lg leading-none tracking-tighter sm:text-xl"
             >
-              Close
-            </button>
-          </div>
-          <nav className="mt-10 flex flex-col sm:mt-16">
-            {links.map((l, i) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className="rise flex items-baseline justify-between border-b border-paper/10 py-4 font-display text-3xl tracking-tight transition-colors hover:text-accent-bronze sm:text-4xl"
-                style={{ animationDelay: `${i * 40}ms`, animationDuration: "600ms" }}
+              {site.name.toUpperCase()}
+            </Link>
+
+            <nav className="my-auto flex flex-col py-10">
+              {links.map((l, i) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  activeOptions={{ exact: l.to === "/" }}
+                  onClick={() => setOpen(false)}
+                  className="rise group flex items-baseline justify-between gap-6 border-b border-paper/15 py-4 font-display text-4xl tracking-tight transition-colors hover:text-accent-bronze sm:text-5xl lg:text-6xl"
+                  activeProps={{ className: "text-accent-bronze" }}
+                  style={{
+                    animationDelay: `${i * 45}ms`,
+                    animationDuration: "600ms",
+                  }}
+                >
+                  <span className="flex items-baseline gap-5">
+                    <span className="index-num text-paper/35">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {l.label}
+                  </span>
+                  <span className="text-base opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                    →
+                  </span>
+                </Link>
+              ))}
+            </nav>
+
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6">
+              <p className="eyebrow min-w-0 text-paper/40">{site.tagline}</p>
+              <a
+                href={site.social.youtube}
+                target="_blank"
+                rel="noreferrer"
+                className="eyebrow shrink-0 text-paper/40 transition-colors hover:text-paper"
               >
-                {l.label}
-                <span className="eyebrow text-paper/30">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </Link>
-            ))}
-          </nav>
-          <p className="eyebrow mt-auto pt-10 text-paper/40">{site.tagline}</p>
+                YouTube
+              </a>
+            </div>
+          </div>
         </div>
       )}
     </>
