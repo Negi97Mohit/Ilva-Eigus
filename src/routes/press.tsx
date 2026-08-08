@@ -31,27 +31,34 @@ function PressPage() {
         title="Press"
         eyebrow="Media coverage"
         alt="Ilva Eigus performing on stage"
+        lede="Selected features, reviews and broadcasts."
+        meta={`${press.length} clippings`}
       />
 
-      <section className="px-6 py-24 lg:px-12">
-        <div className="divide-y divide-ink/10 border-t border-ink/10">
-          {press.map((p) => (
+      <section className="shell section-y">
+        <div className="hairline">
+          {press.map((p, i) => (
             <a
               key={p.link + p.date}
               href={p.link}
               target="_blank"
               rel="noreferrer"
-              className="group grid gap-3 py-10 transition-colors hover:bg-ink/[0.02] md:grid-cols-12"
+              className="group grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-6 gap-y-3 border-b border-ink/10 py-7 transition-colors hover:bg-ink/[0.025] md:grid-cols-12 md:items-center md:gap-8 md:py-9"
             >
-              <div className="text-sm text-ink/50 md:col-span-2">{p.date}</div>
-              <div className="eyebrow text-ink/60 md:col-span-3">
-                {p.outlet}
+              <div className="min-w-0 md:col-span-3">
+                <div className="eyebrow text-ink/60">{p.outlet}</div>
+                <div className="mt-2 text-sm text-ink/40">{p.date}</div>
               </div>
-              <h2 className="text-balance font-display text-xl italic leading-snug md:col-span-6">
+              <div className="index-num text-ink/25 md:hidden">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <h2 className="col-span-2 text-balance font-display text-xl italic leading-snug transition-colors group-hover:text-accent-bronze md:col-span-8 md:text-2xl">
                 {p.headline}
               </h2>
-              <div className="text-xs uppercase tracking-widest text-ink/30 transition-colors group-hover:text-accent-bronze md:col-span-1 md:text-right">
-                Read
+              <div className="col-span-2 md:col-span-1 md:text-right">
+                <span className="eyebrow inline-block border-b border-ink/15 pb-1 text-ink/40 transition-colors group-hover:border-accent-bronze group-hover:text-accent-bronze">
+                  Read
+                </span>
               </div>
             </a>
           ))}

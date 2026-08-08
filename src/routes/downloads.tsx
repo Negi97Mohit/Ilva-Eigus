@@ -63,44 +63,51 @@ function DownloadsPage() {
         title="Downloads"
         eyebrow="Press material"
         alt="Ilva Eigus portrait"
+        lede="Biographies and high-resolution photographs for editorial use."
+        meta="Press kit"
       />
 
-      <section className="px-6 py-24 lg:px-12">
+      <section className="shell section-y">
         <h2 className="eyebrow text-ink/40">Biography</h2>
-        <div className="mt-8 divide-y divide-ink/10 border-t border-ink/10">
+        <div className="mt-6 hairline">
           {bios.map((b) => (
             <a
               key={b.href}
               href={b.href}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center justify-between py-6 transition-colors hover:bg-ink/[0.02]"
+              className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-ink/10 py-6 transition-colors hover:bg-ink/[0.025]"
             >
-              <span className="font-display text-xl">{b.label}</span>
-              <span className="text-xs uppercase tracking-widest text-ink/40 transition-colors group-hover:text-accent-bronze">
+              <span className="min-w-0 text-balance font-display text-lg md:text-2xl">
+                {b.label}
+              </span>
+              <span className="eyebrow shrink-0 border-b border-ink/15 pb-1 text-ink/40 transition-colors group-hover:border-accent-bronze group-hover:text-accent-bronze">
                 PDF ↓
               </span>
             </a>
           ))}
         </div>
 
-        <h2 className="eyebrow mt-24 text-ink/40">Photographs</h2>
-        <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
+        <h2 className="eyebrow mt-20 text-ink/40 md:mt-28">Photographs</h2>
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
           {photos.map((p) => (
-            <figure key={p.full}>
-              <img
-                src={p.thumb}
-                alt="Ilva Eigus press photograph"
-                loading="lazy"
-                className="aspect-2/3 w-full object-cover grayscale"
-              />
-              <figcaption className="mt-3 flex items-center justify-between text-xs uppercase tracking-widest text-ink/40">
-                <span>© Quim Vilar</span>
+            <figure key={p.full} className="group">
+              <div className="overflow-hidden bg-muted">
+                <img
+                  src={p.thumb}
+                  alt="Ilva Eigus press photograph"
+                  loading="lazy"
+                  className="aspect-2/3 w-full object-cover grayscale transition-all duration-[900ms] ease-editorial group-hover:scale-[1.04] group-hover:grayscale-0"
+                />
+              </div>
+              <figcaption className="mt-3 flex items-center justify-between gap-3 border-t border-ink/10 pt-3 text-[10px] uppercase tracking-widest text-ink/40">
+                <span className="truncate">© Quim Vilar</span>
                 <a
                   href={p.full}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-accent-bronze hover:opacity-70"
+                  className="shrink-0 text-accent-bronze transition-opacity hover:opacity-70"
+                  aria-label="Download high-resolution photograph"
                 >
                   ↓
                 </a>
