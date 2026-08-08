@@ -23,32 +23,42 @@ function Index() {
 
   return (
     <>
-      <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-paper pb-8 md:pb-16">
-        <div className="shell grid flex-1 grid-cols-1 items-end gap-8 pt-28 md:grid-cols-12 md:items-center md:gap-4">
-          <div className="relative z-10 md:col-span-7">
-            <span className="eyebrow mb-5 block text-accent-bronze md:mb-7">
-              {site.tagline}
-            </span>
-            <h1 className="display-xl leading-[0.85] text-ink">
-              {site.name.split(" ")[0]}
-              <br />
-              <span className="ml-8 italic md:ml-16">
+      <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-paper pb-8 md:pb-16">
+        {/* Soft background texture */}
+        <div className="absolute -left-20 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-sand opacity-50 blur-3xl" />
+
+        <div className="shell relative grid flex-1 grid-cols-1 items-center gap-0 pt-28 md:grid-cols-12 md:pt-0">
+          <div className="relative z-10 md:col-span-7 md:-mr-24">
+            <h1 className="font-display leading-[0.8] text-ink">
+              <span className="display-hero block font-light">
+                {site.name.split(" ")[0]}
+              </span>
+              <span className="display-hero block italic md:ml-[18%]">
                 {site.name.split(" ").slice(1).join(" ")}
               </span>
             </h1>
-            <p className="lede mt-8 max-w-[42ch] text-ink/75">
-              {site.heroStrapline}
-            </p>
+
+            <div className="mt-10 flex items-center gap-5 md:mt-14">
+              <div className="h-px w-12 bg-accent-bronze" />
+              <span className="eyebrow text-ink/80 italic">{site.tagline}</span>
+            </div>
           </div>
-          <div className="relative md:col-span-5">
-            <div className="aspect-[3/4] overflow-hidden bg-sand">
+
+          <div className="relative mt-12 md:col-span-5 md:mt-0">
+            <div className="relative aspect-[3/4] w-full overflow-hidden bg-sand shadow-2xl">
               <img
                 src={heroBw}
                 alt="Ilva Eigus, portrait with her violin"
                 className="h-full w-full object-cover sepia-[10%] contrast-105 grayscale transition-all duration-700 hover:grayscale-0"
               />
+              <div className="pointer-events-none absolute inset-4 border border-paper/20" />
             </div>
-            <div className="absolute -bottom-4 -left-4 hidden h-24 w-24 border-b border-l border-accent-bronze/40 md:block" />
+
+            <div className="absolute -right-6 bottom-12 hidden lg:block">
+              <span className="index-num -rotate-90 origin-right whitespace-nowrap text-accent-bronze">
+                2025 / 26 Season
+              </span>
+            </div>
           </div>
         </div>
 

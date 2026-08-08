@@ -14,7 +14,7 @@ export const site = {
   description:
     "Official website of Swiss-Latvian violinist Ilva Eigus: season calendar, biography, video, press and contact.",
   /** Homepage hero strapline. */
-  heroStrapline: "Precise intonation, depth and artistic maturity.",
+  heroStrapline: "A distinctive voice in classical violin.",
   /** Social / external links. */
   social: {
     youtube: "https://www.youtube.com/channel/UCQZC5LGoXDzOHntApz6IcYg",
