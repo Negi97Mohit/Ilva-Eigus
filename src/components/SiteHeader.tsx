@@ -66,9 +66,10 @@ export function SiteHeader() {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         className={[
-          "group fixed right-4 top-4 z-70 flex h-11 w-11 flex-col items-center justify-center gap-[7px]",
-          open ? "text-paper" : "text-foreground",
-          "transition-[transform,opacity,color] duration-500 ease-editorial sm:right-8 sm:top-7",
+          "group fixed right-4 top-4 z-70 flex h-12 w-12 flex-col items-center justify-center gap-[7px]",
+          "rounded-full bg-ink/45 text-paper backdrop-blur-md",
+          "transition-[transform,opacity,background-color] duration-500 ease-editorial",
+          "hover:bg-ink/70 sm:right-8 sm:top-7",
           hidden && !open ? "-translate-y-20 opacity-0" : "translate-y-0 opacity-100",
         ].join(" ")}
       >
@@ -81,7 +82,13 @@ export function SiteHeader() {
         <span
           className={[
             "block h-px w-6 bg-current transition-all duration-500 ease-editorial",
-            open ? "-translate-y-[4px] -rotate-45" : "group-hover:w-4",
+            open ? "opacity-0" : "group-hover:w-4",
+          ].join(" ")}
+        />
+        <span
+          className={[
+            "block h-px w-6 bg-current transition-all duration-500 ease-editorial",
+            open ? "-translate-y-[4px] -rotate-45" : "group-hover:w-5",
           ].join(" ")}
         />
       </button>
