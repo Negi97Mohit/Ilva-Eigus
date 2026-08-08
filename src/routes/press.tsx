@@ -56,8 +56,9 @@ function PressPage() {
                 {p.headline}
               </h2>
               <div className="col-span-2 md:col-span-1 md:text-right">
-                <span className="eyebrow inline-block border-b border-ink/15 pb-1 text-ink/40 transition-colors group-hover:border-accent-bronze group-hover:text-accent-bronze">
+                <span className="link-detail">
                   Read
+                  <span className="link-arrow">→</span>
                 </span>
               </div>
             </a>

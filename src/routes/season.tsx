@@ -65,12 +65,10 @@ function Season() {
                         href={c.link}
                         target="_blank"
                         rel="noreferrer"
-                        className="eyebrow inline-flex items-center gap-2 border-b border-ink/30 pb-1 text-ink transition-colors hover:border-accent-bronze hover:text-accent-bronze"
+                        className="link-detail"
                       >
                         Details
-                        <span className="transition-transform group-hover:translate-x-0.5">
-                          →
-                        </span>
+                        <span className="link-arrow">→</span>
                       </a>
                     ) : (
                       <span className="eyebrow text-ink/25">Private</span>

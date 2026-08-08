@@ -186,10 +186,7 @@ function ContactPage() {
               Yes, subscribe me to the newsletter.
             </label>
 
-            <button
-              type="submit"
-              className="w-full border border-ink py-4 text-[11px] font-semibold uppercase tracking-[0.3em] transition-colors duration-500 hover:bg-ink hover:text-paper"
-            >
+            <button type="submit" className="btn-primary w-full">
               Send message
             </button>
           </form>

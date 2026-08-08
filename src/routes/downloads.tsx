@@ -74,11 +74,9 @@ function Downloads() {
                     </h3>
                     <p className="mt-2 text-sm text-ink/55">{d.description}</p>
                   </div>
-                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-ink/70 transition-colors group-hover:text-ink">
+                  <div className="mt-6 link-detail">
                     Download
-                    <span className="transition-transform group-hover:translate-x-0.5">
-                      →
-                    </span>
+                    <span className="link-arrow">→</span>
                   </div>
                 </a>
               );
