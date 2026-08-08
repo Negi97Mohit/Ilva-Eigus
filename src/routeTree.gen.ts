@@ -14,7 +14,9 @@ import { Route as BioRouteImport } from './routes/bio'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as PressRouteImport } from './routes/press'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SeasonRouteImport } from './routes/season'
 import { Route as VideoRouteImport } from './routes/video'
 
@@ -43,9 +45,19 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PressRoute = PressRouteImport.update({
   id: '/press',
   path: '/press',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SeasonRoute = SeasonRouteImport.update({
@@ -65,7 +77,9 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/downloads': typeof DownloadsRoute
   '/gallery': typeof GalleryRoute
+  '/impressum': typeof ImpressumRoute
   '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
   '/season': typeof SeasonRoute
   '/video': typeof VideoRoute
 }
@@ -75,7 +89,9 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/downloads': typeof DownloadsRoute
   '/gallery': typeof GalleryRoute
+  '/impressum': typeof ImpressumRoute
   '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
   '/season': typeof SeasonRoute
   '/video': typeof VideoRoute
 }
@@ -86,7 +102,9 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/downloads': typeof DownloadsRoute
   '/gallery': typeof GalleryRoute
+  '/impressum': typeof ImpressumRoute
   '/press': typeof PressRoute
+  '/privacy': typeof PrivacyRoute
   '/season': typeof SeasonRoute
   '/video': typeof VideoRoute
 }
@@ -98,7 +116,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/downloads'
     | '/gallery'
+    | '/impressum'
     | '/press'
+    | '/privacy'
     | '/season'
     | '/video'
   fileRoutesByTo: FileRoutesByTo
@@ -108,7 +128,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/downloads'
     | '/gallery'
+    | '/impressum'
     | '/press'
+    | '/privacy'
     | '/season'
     | '/video'
   id:
@@ -118,7 +140,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/downloads'
     | '/gallery'
+    | '/impressum'
     | '/press'
+    | '/privacy'
     | '/season'
     | '/video'
   fileRoutesById: FileRoutesById
@@ -129,7 +153,9 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DownloadsRoute: typeof DownloadsRoute
   GalleryRoute: typeof GalleryRoute
+  ImpressumRoute: typeof ImpressumRoute
   PressRoute: typeof PressRoute
+  PrivacyRoute: typeof PrivacyRoute
   SeasonRoute: typeof SeasonRoute
   VideoRoute: typeof VideoRoute
 }
@@ -171,11 +197,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/press': {
       id: '/press'
       path: '/press'
       fullPath: '/press'
       preLoaderRoute: typeof PressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/season': {
@@ -201,7 +241,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DownloadsRoute: DownloadsRoute,
   GalleryRoute: GalleryRoute,
+  ImpressumRoute: ImpressumRoute,
   PressRoute: PressRoute,
+  PrivacyRoute: PrivacyRoute,
   SeasonRoute: SeasonRoute,
   VideoRoute: VideoRoute,
 }
