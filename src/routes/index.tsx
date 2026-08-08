@@ -62,11 +62,8 @@ function Index() {
           </div>
         </div>
 
-        <div className="shell mt-8 flex items-end justify-between border-t border-ink/10 pt-5 md:mt-12">
+        <div className="shell mt-8 flex items-end border-t border-ink/10 pt-5 md:mt-12">
           <p className="eyebrow text-ink/50">2025 / 26 Season</p>
-          <p className="eyebrow hidden text-ink/50 sm:block">
-            Scroll to explore
-          </p>
         </div>
       </section>
 
