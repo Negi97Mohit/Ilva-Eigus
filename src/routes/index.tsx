@@ -31,10 +31,10 @@ function Index() {
         />
         <div className="absolute bottom-12 left-6 lg:left-12">
           <h1 className="rise font-display text-6xl leading-none text-paper mix-blend-difference md:text-[120px]">
-            Ilva Eigus
+            {site.name}
           </h1>
           <p className="rise mt-4 font-display text-2xl italic text-paper/90 md:text-3xl">
-            Violinist
+            {site.tagline}
           </p>
         </div>
       </section>
@@ -56,7 +56,7 @@ function Index() {
 
           <div className="lg:col-span-7">
             <h2 className="mb-12 text-balance font-display text-4xl">
-              Precise intonation, depth and artistic maturity.
+              {site.heroStrapline}
             </h2>
             <div className="max-w-[48ch] space-y-8 text-pretty font-display text-lg leading-relaxed text-ink/80 md:text-xl">
               <p>{bioParagraphs[0]}</p>
