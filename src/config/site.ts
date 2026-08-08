@@ -15,6 +15,10 @@ export const site = {
     "Official website of Swiss-Latvian violinist Ilva Eigus: season calendar, biography, video, press and contact.",
   /** Homepage hero strapline. */
   heroStrapline: "A distinctive voice in classical violin.",
+  /** Website base URL for SEO and canonical links */
+  url: "https://www.ilvaeigus.com",
+  /** SEO keywords */
+  keywords: ["Ilva Eigus", "violinist", "classical music", "Swiss-Latvian violinist", "concerts", "classical violin"],
   /** Social / external links. */
   social: {
     youtube: "https://www.youtube.com/channel/UCQZC5LGoXDzOHntApz6IcYg",

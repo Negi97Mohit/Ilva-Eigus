@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { site, title, description } from "../config/site";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
@@ -41,7 +40,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    // Error reporting removed
   }, [error]);
 
   return (
@@ -83,12 +82,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: title() },
       { name: "description", content: description() },
       { name: "author", content: site.name },
+      { name: "keywords", content: site.keywords.join(", ") },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: title() },
       { property: "og:description", content: description() },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: site.url },
+      { property: "og:site_name", content: site.name },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title() },
+      { name: "twitter:description", content: description() },
     ],
     links: [
+      { rel: "canonical", href: site.url },
       {
         rel: "stylesheet",
         href: appCss,
