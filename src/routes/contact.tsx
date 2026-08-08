@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { PageHero } from "@/components/PageHero";
+
 import contactHero from "@/assets/portrait-2.jpg";
 import { supporters } from "@/data/site";
 
