@@ -67,9 +67,9 @@ export function SiteHeader() {
         aria-expanded={open}
         className={[
           "group fixed right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-70 flex h-12 w-12 flex-col items-center justify-center gap-[7px]",
-          "rounded-full border border-paper/20 bg-paper/15 text-paper shadow-lg shadow-ink/20 backdrop-blur-md",
+          "rounded-full border border-paper/25 bg-ink/55 text-paper shadow-lg shadow-ink/20 backdrop-blur-md",
           "transition-[transform,opacity,background-color,border-color] duration-500 ease-editorial",
-          "hover:border-paper/40 hover:bg-paper/25 sm:right-[max(2rem,env(safe-area-inset-right))] sm:top-[max(1.75rem,env(safe-area-inset-top))]",
+          "hover:border-paper/45 hover:bg-ink/70 sm:right-[max(2rem,env(safe-area-inset-right))] sm:top-[max(1.75rem,env(safe-area-inset-top))]",
           hidden && !open ? "-translate-y-20 opacity-0" : "translate-y-0 opacity-100",
         ].join(" ")}
       >
@@ -96,7 +96,7 @@ export function SiteHeader() {
       <div
         aria-hidden={!open}
         className={[
-          "fixed inset-0 z-60 flex flex-col overflow-y-auto bg-ink/50 text-paper backdrop-blur-2xl",
+          "fixed inset-0 z-60 flex flex-col overflow-y-auto bg-ink/75 text-paper backdrop-blur-2xl",
           "transition-opacity duration-500 ease-editorial",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         ].join(" ")}

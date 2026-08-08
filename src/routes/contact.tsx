@@ -89,7 +89,7 @@ function ContactPage() {
               <img
                 src={contactHero}
                 alt="Portrait of Ilva Eigus"
-                className="settle block h-auto w-full object-contain grayscale"
+                className="settle block h-auto w-full object-contain sepia-[8%] grayscale"
               />
             </div>
             <figcaption className="mt-4 text-center text-xs uppercase italic tracking-widest text-paper/35">
@@ -181,15 +181,12 @@ function ContactPage() {
                 onChange={(e) =>
                   setForm({ ...form, newsletter: e.target.checked })
                 }
-                className="size-4 accent-[oklch(0.5595_0.0425_70)]"
+                className="size-4 accent-accent-bronze"
               />
               Yes, subscribe me to the newsletter.
             </label>
 
-            <button
-              type="submit"
-              className="w-full border border-ink py-4 text-[11px] font-semibold uppercase tracking-[0.3em] transition-colors duration-500 hover:bg-ink hover:text-paper"
-            >
+            <button type="submit" className="btn-primary w-full">
               Send message
             </button>
           </form>

@@ -23,23 +23,40 @@ function Index() {
 
   return (
     <>
-      <section className="relative flex h-[100svh] flex-col justify-end overflow-hidden bg-ink">
-        <img
-          src={heroBw}
-          alt="Ilva Eigus, black and white portrait with her violin"
-          className="settle absolute inset-0 h-full w-full object-cover grayscale"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-ink/30" />
-        <div className="shell relative pb-12 md:pb-16">
-          <h1 className="rise display-xl text-paper">{site.name}</h1>
-          <div className="mt-6 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6 border-t border-paper/20 pt-5">
-            <p className="rise min-w-0 font-display text-xl italic text-paper/85 md:text-2xl">
+      <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-paper pb-8 md:pb-16">
+        <div className="shell grid flex-1 grid-cols-1 items-end gap-8 pt-28 md:grid-cols-12 md:items-center md:gap-4">
+          <div className="relative z-10 md:col-span-7">
+            <span className="eyebrow mb-5 block text-accent-bronze md:mb-7">
               {site.tagline}
-            </p>
-            <p className="index-num rise hidden shrink-0 uppercase text-paper/45 sm:block">
-              2025 / 26 Season
+            </span>
+            <h1 className="display-xl leading-[0.85] text-ink">
+              {site.name.split(" ")[0]}
+              <br />
+              <span className="ml-8 italic md:ml-16">
+                {site.name.split(" ").slice(1).join(" ")}
+              </span>
+            </h1>
+            <p className="lede mt-8 max-w-[42ch] text-ink/75">
+              {site.heroStrapline}
             </p>
           </div>
+          <div className="relative md:col-span-5">
+            <div className="aspect-[3/4] overflow-hidden bg-sand">
+              <img
+                src={heroBw}
+                alt="Ilva Eigus, portrait with her violin"
+                className="h-full w-full object-cover sepia-[10%] contrast-105 grayscale transition-all duration-700 hover:grayscale-0"
+              />
+            </div>
+            <div className="absolute -bottom-4 -left-4 hidden h-24 w-24 border-b border-l border-accent-bronze/40 md:block" />
+          </div>
+        </div>
+
+        <div className="shell mt-8 flex items-end justify-between border-t border-ink/10 pt-5 md:mt-12">
+          <p className="eyebrow text-ink/50">2025 / 26 Season</p>
+          <p className="eyebrow hidden text-ink/50 sm:block">
+            Scroll to explore
+          </p>
         </div>
       </section>
 
@@ -50,7 +67,7 @@ function Index() {
               <img
                 src={portrait1}
                 alt="Ilva Eigus photographed in Zurich"
-                className="aspect-4/5 w-full object-cover grayscale"
+                className="aspect-4/5 w-full object-cover sepia-[8%] grayscale"
               />
               <p className="mt-5 border-t border-ink/10 pt-4 text-xs uppercase italic tracking-widest text-ink/40">
                 Photography by Quim Vilar
@@ -68,14 +85,9 @@ function Index() {
               </p>
               <p className="lede">{bioParagraphs[5]}</p>
               <div className="pt-8">
-                <Link
-                  to="/bio"
-                  className="group flex w-fit items-center gap-3 border-b border-ink/15 py-2 text-sm font-medium transition-colors hover:border-ink"
-                >
+                <Link to="/bio" className="link-detail">
                   Read the full biography
-                  <span className="transition-transform group-hover:translate-x-0.5">
-                    →
-                  </span>
+                  <span className="link-arrow">→</span>
                 </Link>
               </div>
             </div>
@@ -83,58 +95,60 @@ function Index() {
         </div>
       </section>
 
-      <section className="hairline shell section-y">
-        <div className="mb-10 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6 md:mb-14">
-          <div className="min-w-0">
+      <section className="shell section-y bg-sand/30">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-3">
             <h3 className="eyebrow mb-3 text-ink/40">Schedule</h3>
             <h4 className="display-lg">2025 / 26 Season</h4>
+            <p className="mt-4 text-sm leading-relaxed text-ink/60">
+              Selected upcoming performances across Europe and the United
+              States.
+            </p>
           </div>
-          <span className="index-num hidden shrink-0 uppercase text-ink/30 sm:block">
-            Next {upcoming.length}
-          </span>
-        </div>
 
-        <div className="hairline">
-          {upcoming.map((c) => (
-            <div
-              key={c.iso + c.venue}
-              className="grid gap-3 border-b border-ink/10 py-7 transition-colors hover:bg-ink/[0.025] md:grid-cols-4 md:items-center md:gap-8"
-            >
-              <div className="font-display text-lg leading-none tracking-tight">
-                {c.date}
-              </div>
-              <div className="min-w-0 md:col-span-2">
-                <div className="text-balance font-display text-xl">
-                  {c.programme}
+          <div className="lg:col-span-9">
+            <div className="border-t border-ink/10">
+              {upcoming.map((c) => (
+                <div
+                  key={c.iso + c.venue}
+                  className="group grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-6 gap-y-3 border-b border-ink/10 py-7 transition-colors hover:bg-paper md:grid-cols-12 md:items-center md:gap-8 md:px-4"
+                >
+                  <div className="font-display text-lg leading-none tracking-tight md:col-span-3">
+                    {c.date}
+                  </div>
+                  <div className="min-w-0 md:col-span-6">
+                    <div className="text-balance font-display text-xl">
+                      {c.programme}
+                    </div>
+                    <div className="mt-2 text-sm text-ink/55">
+                      {c.venue}, {c.city} — {c.artists}
+                    </div>
+                  </div>
+                  <div className="md:col-span-3 md:text-right">
+                    {c.link ? (
+                      <a
+                        href={c.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="link-detail"
+                      >
+                        Details
+                        <span className="link-arrow">→</span>
+                      </a>
+                    ) : (
+                      <span className="eyebrow text-ink/25">Private</span>
+                    )}
+                  </div>
                 </div>
-                <div className="mt-2 text-sm text-ink/55">
-                  {c.venue}, {c.city} — {c.artists}
-                </div>
-              </div>
-              <div className="md:text-right">
-                {c.link ? (
-                  <a
-                    href={c.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="eyebrow inline-block border-b border-accent-bronze/40 pb-1 text-accent-bronze transition-colors hover:border-accent-bronze"
-                  >
-                    Details
-                  </a>
-                ) : (
-                  <span className="eyebrow text-ink/25">Private</span>
-                )}
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <Link
-          to="/season"
-          className="mt-10 inline-block border-b border-ink/15 py-2 text-sm font-medium transition-colors hover:border-ink"
-        >
-          View the full season →
-        </Link>
+            <Link to="/season" className="link-detail mt-10">
+              View the full season
+              <span className="link-arrow">→</span>
+            </Link>
+          </div>
+        </div>
       </section>
 
       <section className="shell section-y">
@@ -158,15 +172,13 @@ function Index() {
             </figure>
           ))}
         </div>
-        <Link
-          to="/video"
-          className="mt-10 inline-block border-b border-ink/15 py-2 text-sm font-medium transition-colors hover:border-ink"
-        >
-          All videos →
+        <Link to="/video" className="link-detail mt-10">
+          All videos
+          <span className="link-arrow">→</span>
         </Link>
       </section>
 
-      <section className="hairline shell section-y">
+      <section className="shell section-y bg-sand/30">
         <h3 className="eyebrow mb-10 text-ink/40">Selected press</h3>
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">
           {latestPress.map((p) => (
@@ -180,11 +192,9 @@ function Index() {
             </blockquote>
           ))}
         </div>
-        <Link
-          to="/press"
-          className="mt-10 inline-block border-b border-ink/15 py-2 text-sm font-medium transition-colors hover:border-ink"
-        >
-          All press →
+        <Link to="/press" className="link-detail mt-10">
+          All press
+          <span className="link-arrow">→</span>
         </Link>
       </section>
     </>
