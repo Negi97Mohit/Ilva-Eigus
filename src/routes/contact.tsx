@@ -89,7 +89,7 @@ function ContactPage() {
               <img
                 src={contactHero}
                 alt="Portrait of Ilva Eigus"
-                className="settle block h-auto w-full object-contain grayscale"
+                className="settle block h-auto w-full object-contain sepia-[8%] grayscale"
               />
             </div>
             <figcaption className="mt-4 text-center text-xs uppercase italic tracking-widest text-paper/35">
@@ -181,7 +181,7 @@ function ContactPage() {
                 onChange={(e) =>
                   setForm({ ...form, newsletter: e.target.checked })
                 }
-                className="size-4 accent-[oklch(0.5595_0.0425_70)]"
+                className="size-4 accent-accent-bronze"
               />
               Yes, subscribe me to the newsletter.
             </label>

@@ -64,7 +64,7 @@ function GalleryPage() {
                 src={src}
                 alt={`Ilva Eigus, photograph ${i + 1}`}
                 loading="lazy"
-                className="h-full w-full object-cover grayscale transition-all duration-[900ms] ease-editorial group-hover:scale-[1.04] group-hover:grayscale-0"
+                className="h-full w-full object-cover sepia-[8%] grayscale transition-all duration-[900ms] ease-editorial group-hover:scale-[1.04] group-hover:grayscale-0"
               />
               <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <span className="index-num pointer-events-none absolute bottom-3 left-3 text-paper opacity-0 transition-opacity duration-500 group-hover:opacity-100">

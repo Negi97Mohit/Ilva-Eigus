@@ -275,6 +275,45 @@ export const supporters = [
   { name: "Fondation ART-THERAPIE", href: "https://art-therapie.ch/" },
 ];
 
+export type DownloadItem = {
+  type: "pdf" | "image" | "audio";
+  label: string;
+  description: string;
+  href: string;
+  meta: string;
+};
+
+export const downloadsList: DownloadItem[] = [
+  {
+    type: "pdf",
+    label: "Biography",
+    description: "Full English biography, updated 2026.",
+    href: "/downloads/ilva-eigus-biography.pdf",
+    meta: "PDF",
+  },
+  {
+    type: "image",
+    label: "Press photos",
+    description: "High-resolution portraits and performance photos.",
+    href: "/downloads/ilva-eigus-press-photos.zip",
+    meta: "ZIP",
+  },
+  {
+    type: "pdf",
+    label: "Repertoire",
+    description: "Concerto and recital repertoire list.",
+    href: "/downloads/ilva-eigus-repertoire.pdf",
+    meta: "PDF",
+  },
+  {
+    type: "pdf",
+    label: "Technical rider",
+    description: "Stage plan and technical requirements.",
+    href: "/downloads/ilva-eigus-rider.pdf",
+    meta: "PDF",
+  },
+];
+
 export const bioParagraphs = [
   "Swiss-Latvian violinist Ilva Eigus was born in 2007. She received her first violin lesson at the age of three from Liana Tretiakova and continued to study with her at the Zakhar Bron School of Music in Zurich until summer 2023. Since 2023, Ilva has been mentored by Professor Marc Bouchkov, first as a pre-college student at the Royal Conservatory of Liège, Belgium and, from 2026, at the Folkwang University of the Arts in Essen, Germany. Ilva is an honoured recipient of scholarships from the Verbier Festival Academy, the Seiji Ozawa Academy, IMS Prussia Cove in the UK, the Liechtenstein Music Academy, the Villa Musica Chamber Music Excellence Programme and Music in the Mountains Violin Academy, USA, among others.",
   "Ilva's exceptional talent was recognised early on, and she has been taught by the renowned violin professor Zakhar Bron since the age of seven. She has gained further musical inspiration from Gerhard Schulz, Vadim Gluzman, Ingolf Turban, Priya Mitchell, Janine Jansen, Augustin Dumay, Suyoen Kim, Sadao Harada, Marie Chilemme, Nobuko Imai and Sergey Krylov.",

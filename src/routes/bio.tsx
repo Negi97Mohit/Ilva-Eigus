@@ -43,7 +43,7 @@ function BioPage() {
               <img
                 src={portrait2}
                 alt="Portrait of Ilva Eigus"
-                className="aspect-4/5 w-full object-cover grayscale"
+                className="aspect-4/5 w-full object-cover sepia-[8%] grayscale"
               />
               <p className="mt-5 border-t border-ink/10 pt-4 text-xs uppercase italic tracking-widest text-ink/40">
                 Photography by Quim Vilar
