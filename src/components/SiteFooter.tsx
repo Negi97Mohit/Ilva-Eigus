@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { site } from "@/config/site";
 import { supporters } from "@/data/site";
 
 export function SiteFooter() {
@@ -7,10 +8,10 @@ export function SiteFooter() {
       <div className="grid gap-16 lg:grid-cols-3">
         <div>
           <h2 className="font-display text-3xl leading-none tracking-tighter">
-            Ilva Eigus
+            {site.name}
           </h2>
           <p className="mt-4 font-display text-lg italic text-ink/60">
-            Violinist
+            {site.tagline}
           </p>
         </div>
 
@@ -60,10 +61,10 @@ export function SiteFooter() {
       </div>
 
       <div className="mt-24 flex flex-col gap-4 border-t border-ink/10 pt-8 text-[10px] uppercase tracking-widest text-ink/40 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} Ilva Eigus</p>
+        <p>© {new Date().getFullYear()} {site.name}</p>
         <div className="flex gap-6">
           <a
-            href="https://www.youtube.com/channel/UCQZC5LGoXDzOHntApz6IcYg"
+            href={site.social.youtube}
             target="_blank"
             rel="noreferrer"
           >
