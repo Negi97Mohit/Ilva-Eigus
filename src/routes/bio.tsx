@@ -32,36 +32,50 @@ function BioPage() {
         title="Biography"
         eyebrow="The artist"
         alt="Ilva Eigus performing"
+        lede="A Swiss-Latvian violinist shaped by the great teaching traditions."
+        meta="Profile"
       />
 
-      <section className="px-6 py-24 lg:px-12 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-24">
+      <section className="shell section-y">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-5">
-            <div className="sticky top-32">
+            <div className="lg:sticky lg:top-32">
               <img
                 src={portrait2}
                 alt="Portrait of Ilva Eigus"
                 className="aspect-4/5 w-full object-cover grayscale"
               />
-              <p className="mt-6 text-xs uppercase italic tracking-widest text-ink/40">
+              <p className="mt-5 border-t border-ink/10 pt-4 text-xs uppercase italic tracking-widest text-ink/40">
                 Photography by Quim Vilar
               </p>
               <Link
                 to="/downloads"
-                className="mt-8 inline-block border-b border-ink/10 py-2 text-sm font-medium transition-colors hover:border-ink"
+                className="group mt-6 inline-flex items-center gap-3 border-b border-ink/15 py-2 text-sm font-medium transition-colors hover:border-ink"
               >
-                Press biography & photos →
+                Press biography &amp; photos
+                <span className="transition-transform group-hover:translate-x-0.5">
+                  →
+                </span>
               </Link>
             </div>
           </div>
 
           <div className="lg:col-span-7">
-            <h2 className="mb-12 max-w-[24ch] text-balance font-display text-4xl">
+            <h2 className="display-lg mb-10 max-w-[20ch] text-balance md:mb-14">
               A Swiss-Latvian voice shaped by the great teaching traditions.
             </h2>
-            <div className="max-w-[52ch] space-y-8 text-pretty font-display text-lg leading-relaxed text-ink/80 md:text-xl">
-              {bioParagraphs.map((p) => (
-                <p key={p.slice(0, 32)}>{p}</p>
+            <div className="max-w-[56ch] space-y-7 text-ink/80">
+              {bioParagraphs.map((p, i) => (
+                <p
+                  key={p.slice(0, 32)}
+                  className={
+                    i === 0
+                      ? "lede first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-6xl first-letter:leading-[0.8] first-letter:text-ink"
+                      : "lede"
+                  }
+                >
+                  {p}
+                </p>
               ))}
             </div>
           </div>
