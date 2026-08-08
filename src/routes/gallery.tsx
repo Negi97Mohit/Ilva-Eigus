@@ -11,7 +11,7 @@ const images = Object.entries(
   .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
   .map(([, mod]) => mod.default);
 
-const galleryHero = images[3];
+const galleryHero = images[3] ?? images[0] ?? "";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
