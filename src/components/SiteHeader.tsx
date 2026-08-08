@@ -66,79 +66,80 @@ export function SiteHeader() {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         className={[
-          "group fixed right-5 top-5 z-70 flex h-12 w-12 flex-col items-center justify-center gap-[6px]",
-          "rounded-full border border-paper/25 bg-ink/40 text-paper backdrop-blur-md",
-          "transition-[transform,opacity,background-color] duration-500 ease-editorial",
-          "hover:bg-ink/70 sm:right-8 sm:top-8",
-          hidden && !open ? "-translate-y-24 opacity-0" : "translate-y-0 opacity-100",
+          "group fixed right-4 top-4 z-70 flex h-11 w-11 flex-col items-center justify-center gap-[7px]",
+          open ? "text-paper" : "text-foreground",
+          "transition-[transform,opacity,color] duration-500 ease-editorial sm:right-8 sm:top-7",
+          hidden && !open ? "-translate-y-20 opacity-0" : "translate-y-0 opacity-100",
         ].join(" ")}
       >
         <span
           className={[
-            "block h-px w-5 bg-current transition-transform duration-400 ease-editorial",
-            open ? "translate-y-[3.5px] rotate-45" : "",
+            "block h-px w-6 bg-current transition-all duration-500 ease-editorial",
+            open ? "translate-y-[4px] rotate-45" : "group-hover:w-5",
           ].join(" ")}
         />
         <span
           className={[
-            "block h-px w-5 bg-current transition-transform duration-400 ease-editorial",
-            open ? "-translate-y-[3.5px] -rotate-45" : "",
+            "block h-px w-6 bg-current transition-all duration-500 ease-editorial",
+            open ? "-translate-y-[4px] -rotate-45" : "group-hover:w-4",
           ].join(" ")}
         />
       </button>
 
-      {open && (
-        <div className="fixed inset-0 z-60 flex flex-col overflow-y-auto bg-ink/45 text-paper backdrop-blur-2xl">
-          <div className="shell flex min-h-svh flex-col py-6 sm:py-8">
-            <Link
-              to="/"
-              onClick={() => setOpen(false)}
-              className="font-display text-lg leading-none tracking-tighter sm:text-xl"
-            >
-              {site.name.toUpperCase()}
-            </Link>
+      <div
+        aria-hidden={!open}
+        className={[
+          "fixed inset-0 z-60 flex flex-col overflow-y-auto bg-ink/50 text-paper backdrop-blur-2xl",
+          "transition-opacity duration-500 ease-editorial",
+          open ? "opacity-100" : "pointer-events-none opacity-0",
+        ].join(" ")}
+      >
+        <div className="shell flex min-h-svh flex-col py-5 sm:py-7">
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            tabIndex={open ? 0 : -1}
+            className="font-display text-base leading-none tracking-tight sm:text-lg"
+          >
+            {site.name.toUpperCase()}
+          </Link>
 
-            <nav className="my-auto flex flex-col py-10">
-              {links.map((l, i) => (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  activeOptions={{ exact: l.to === "/" }}
-                  onClick={() => setOpen(false)}
-                  className="rise group flex items-baseline justify-between gap-6 border-b border-paper/15 py-4 font-display text-4xl tracking-tight transition-colors hover:text-accent-bronze sm:text-5xl lg:text-6xl"
-                  activeProps={{ className: "text-accent-bronze" }}
-                  style={{
-                    animationDelay: `${i * 45}ms`,
-                    animationDuration: "600ms",
-                  }}
-                >
-                  <span className="flex items-baseline gap-5">
-                    <span className="index-num text-paper/35">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {l.label}
-                  </span>
-                  <span className="text-base opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-                    →
-                  </span>
-                </Link>
-              ))}
-            </nav>
-
-            <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-6">
-              <p className="eyebrow min-w-0 text-paper/40">{site.tagline}</p>
-              <a
-                href={site.social.youtube}
-                target="_blank"
-                rel="noreferrer"
-                className="eyebrow shrink-0 text-paper/40 transition-colors hover:text-paper"
+          <nav className="my-auto flex flex-col items-center gap-1 py-12 text-center sm:gap-2">
+            {links.map((l, i) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeOptions={{ exact: l.to === "/" }}
+                onClick={() => setOpen(false)}
+                tabIndex={open ? 0 : -1}
+                className={[
+                  "font-display text-[2rem] leading-[1.15] tracking-tight text-paper/70 sm:text-[2.75rem] lg:text-[3.25rem]",
+                  "transition-[color,opacity,transform] duration-500 ease-editorial hover:text-paper",
+                  open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0",
+                ].join(" ")}
+                activeProps={{ className: "text-accent-bronze hover:text-accent-bronze" }}
+                style={{ transitionDelay: open ? `${120 + i * 45}ms` : "0ms" }}
               >
-                YouTube
-              </a>
-            </div>
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-end justify-between gap-6">
+            <p className="eyebrow min-w-0 text-paper/40">{site.tagline}</p>
+            <a
+              href={site.social.youtube}
+              target="_blank"
+              rel="noreferrer"
+              tabIndex={open ? 0 : -1}
+              className="eyebrow shrink-0 text-paper/40 transition-colors hover:text-paper"
+            >
+              YouTube
+            </a>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 }
+
