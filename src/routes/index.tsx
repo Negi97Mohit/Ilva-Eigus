@@ -85,14 +85,9 @@ function Index() {
               </p>
               <p className="lede">{bioParagraphs[5]}</p>
               <div className="pt-8">
-                <Link
-                  to="/bio"
-                  className="group flex w-fit items-center gap-3 border-b border-ink/20 py-2 text-sm font-medium transition-colors hover:border-ink"
-                >
+                <Link to="/bio" className="link-detail">
                   Read the full biography
-                  <span className="transition-transform group-hover:translate-x-0.5">
-                    →
-                  </span>
+                  <span className="link-arrow">→</span>
                 </Link>
               </div>
             </div>
@@ -135,9 +130,10 @@ function Index() {
                         href={c.link}
                         target="_blank"
                         rel="noreferrer"
-                        className="eyebrow inline-block border-b border-ink/30 pb-1 text-ink transition-colors hover:border-accent-bronze hover:text-accent-bronze"
+                        className="link-detail"
                       >
                         Details
+                        <span className="link-arrow">→</span>
                       </a>
                     ) : (
                       <span className="eyebrow text-ink/25">Private</span>
@@ -147,11 +143,9 @@ function Index() {
               ))}
             </div>
 
-            <Link
-              to="/season"
-              className="mt-10 inline-block border-b border-ink/20 py-2 text-sm font-medium transition-colors hover:border-ink"
-            >
-              View the full season →
+            <Link to="/season" className="link-detail mt-10">
+              View the full season
+              <span className="link-arrow">→</span>
             </Link>
           </div>
         </div>
@@ -178,11 +172,9 @@ function Index() {
             </figure>
           ))}
         </div>
-        <Link
-          to="/video"
-          className="mt-10 inline-block border-b border-ink/20 py-2 text-sm font-medium transition-colors hover:border-ink"
-        >
-          All videos →
+        <Link to="/video" className="link-detail mt-10">
+          All videos
+          <span className="link-arrow">→</span>
         </Link>
       </section>
 
@@ -200,11 +192,9 @@ function Index() {
             </blockquote>
           ))}
         </div>
-        <Link
-          to="/press"
-          className="mt-10 inline-block border-b border-ink/20 py-2 text-sm font-medium transition-colors hover:border-ink"
-        >
-          All press →
+        <Link to="/press" className="link-detail mt-10">
+          All press
+          <span className="link-arrow">→</span>
         </Link>
       </section>
     </>
