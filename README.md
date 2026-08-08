@@ -1,57 +1,33 @@
-# Artist Portfolio — Lovable Remix
+<div align="center">
+  <h1>Ilva Eigus</h1>
+  <p><i>A distinctive voice in classical violin.</i></p>
+</div>
 
-A clean, editorial portfolio website for a solo artist or performer. Originally built for a classical violinist, now refactored as a reusable template you can rebrand for any musician, performer, or creative.
+---
 
-## Quick customization
+## ✦ The Digital Stage
 
-The most important file is `src/config/site.ts`. Change these values to make the site yours:
+Welcome to the official digital presence of Swiss-Latvian violinist, Ilva Eigus. 
 
-- `name` — artist or project name (titles, headings, copyright)
-- `tagline` — short descriptor under the name
-- `description` — default meta description for SEO
-- `heroStrapline` — the pull-quote on the homepage
-- `social.youtube` — YouTube channel link
+This repository houses a bespoke, editorial-grade web application crafted to showcase a world-class classical portfolio. Engineered with modern web technologies, it serves as a serene and elegant canvas for her season calendar, biography, video performances, press clippings, and direct contact.
 
-## Content files
+## ✦ Aesthetics & Atmosphere
 
-All editable content lives in `src/data/site.ts`:
+Designed to mirror the sophistication of classical music, the interface leans on:
+- **Editorial Typography:** An interplay of *Playfair Display* and *Instrument Sans* to provide a timeless, refined reading experience.
+- **Harmonious Palette:** A curated contrast of warm, paper-like off-whites and deep ink tones, complemented by subtle bronze accents.
+- **Fluid Minimalism:** Uncluttered spaces and deliberate margins that allow the artistry and imagery to breathe and take center stage.
 
-- `concerts` — upcoming concerts / events / tour dates
-- `videos` — YouTube embed IDs
-- `press` — press quotes and links
-- `supporters` — partners, sponsors, or institutions
-- `bioParagraphs` — full biography text
+## ✦ Architecture
 
-## Pages
+An elegant exterior supported by a robust, state-of-the-art foundation:
+- **Framework:** React / TanStack Start
+- **Styling:** Tailwind CSS 
+- **Language:** TypeScript 
 
-| Route | File | Purpose |
-| --- | --- | --- |
-| `/` | `src/routes/index.tsx` | Homepage with hero, bio teaser, schedule, videos, press |
-| `/bio` | `src/routes/bio.tsx` | Full biography |
-| `/season` | `src/routes/season.tsx` | Concert calendar |
-| `/video` | `src/routes/video.tsx` | Video gallery |
-| `/gallery` | `src/routes/gallery.tsx` | Photo gallery (auto-loads `src/assets/gallery/*.jpg`) |
-| `/press` | `src/routes/press.tsx` | Press coverage |
-| `/downloads` | `src/routes/downloads.tsx` | Press kit downloads |
-| `/contact` | `src/routes/contact.tsx` | Contact form |
-| `/impressum` | `src/routes/impressum.tsx` | Legal notice |
-| `/privacy` | `src/routes/privacy.tsx` | Data protection |
+---
 
-## Design tokens
-
-The visual style is defined in `src/styles.css` using Tailwind CSS v4:
-
-- **Paper / Ink** — warm off-white background and near-black text
-- **Bronze accent** — used for links and CTAs
-- **Fonts** — Playfair Display (display) and Instrument Sans (UI)
-
-To change colors or fonts, edit the CSS variables in `src/styles.css`.
-
-## Development
-
-```sh
-bun install
-bun run dev
-```
-
-Built with TanStack Start, React, TypeScript, and Tailwind CSS.
+<div align="center">
+  <p><i>"Where classical tradition meets modern elegance."</i></p>
+  <p><a href="https://www.ilvaeigus.com">www.ilvaeigus.com</a></p>
+</div>
