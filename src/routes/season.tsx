@@ -31,40 +31,52 @@ function SeasonPage() {
         title="2025 / 26 Season"
         eyebrow="Schedule"
         alt="Ilva Eigus with her violin"
+        lede="Concert dates across Switzerland, Germany, Italy and the United States."
+        meta={`${concerts.length} dates`}
       />
 
-      <section className="px-6 py-24 lg:px-12">
-        <div className="divide-y divide-ink/10 border-t border-ink/10">
-          {concerts.map((c) => (
+      <section className="shell section-y">
+        <div className="hairline">
+          {concerts.map((c, i) => (
             <article
               key={c.iso + c.venue}
-              className="grid gap-4 py-10 transition-colors hover:bg-ink/[0.02] md:grid-cols-12"
+              className="group grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-6 gap-y-3 border-b border-ink/10 py-7 transition-colors hover:bg-ink/[0.025] md:grid-cols-12 md:items-center md:gap-8 md:py-9"
             >
-              <div className="text-sm tracking-tight text-ink/60 md:col-span-2">
-                {c.date}
+              <div className="min-w-0 md:col-span-2">
+                <div className="font-display text-lg leading-none tracking-tight md:text-xl">
+                  {c.date}
+                </div>
+                <div className="eyebrow mt-2 text-ink/40">{c.city}</div>
               </div>
-              <div className="eyebrow text-ink/50 md:col-span-2">{c.city}</div>
-              <div className="md:col-span-5">
-                <h2 className="font-display text-xl leading-snug">
+
+              <div className="index-num self-start text-ink/25 md:hidden">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+
+              <div className="col-span-2 min-w-0 md:col-span-6">
+                <h2 className="text-balance font-display text-xl leading-snug md:text-2xl">
                   {c.programme}
                 </h2>
-                <p className="mt-2 text-sm text-ink/60">{c.artists}</p>
+                <p className="mt-2 text-sm text-ink/55">{c.artists}</p>
+                <p className="mt-1 text-sm text-ink/40 md:hidden">{c.venue}</p>
               </div>
-              <div className="text-sm text-ink/60 md:col-span-2">{c.venue}</div>
-              <div className="md:col-span-1 md:text-right">
+
+              <div className="hidden text-sm text-ink/55 md:col-span-3 md:block">
+                {c.venue}
+              </div>
+
+              <div className="col-span-2 md:col-span-1 md:text-right">
                 {c.link ? (
                   <a
                     href={c.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-xs font-semibold uppercase tracking-widest text-accent-bronze hover:opacity-70"
+                    className="eyebrow inline-block border-b border-accent-bronze/40 pb-1 text-accent-bronze transition-colors hover:border-accent-bronze"
                   >
                     Details
                   </a>
                 ) : (
-                  <span className="text-xs font-semibold uppercase tracking-widest text-ink/30">
-                    Private
-                  </span>
+                  <span className="eyebrow text-ink/25">Private</span>
                 )}
               </div>
             </article>
