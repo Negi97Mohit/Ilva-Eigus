@@ -66,29 +66,29 @@ export function SiteHeader() {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         className={[
-          "group fixed right-4 top-4 z-70 flex h-12 w-12 flex-col items-center justify-center gap-[7px]",
-          "rounded-full bg-ink/45 text-paper backdrop-blur-md",
-          "transition-[transform,opacity,background-color] duration-500 ease-editorial",
-          "hover:bg-ink/70 sm:right-8 sm:top-7",
+          "group fixed right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-70 flex h-12 w-12 flex-col items-center justify-center gap-[7px]",
+          "rounded-full border border-paper/20 bg-paper/15 text-paper shadow-lg shadow-ink/20 backdrop-blur-md",
+          "transition-[transform,opacity,background-color,border-color] duration-500 ease-editorial",
+          "hover:border-paper/40 hover:bg-paper/25 sm:right-[max(2rem,env(safe-area-inset-right))] sm:top-[max(1.75rem,env(safe-area-inset-top))]",
           hidden && !open ? "-translate-y-20 opacity-0" : "translate-y-0 opacity-100",
         ].join(" ")}
       >
         <span
           className={[
-            "block h-px w-6 bg-current transition-all duration-500 ease-editorial",
-            open ? "translate-y-[4px] rotate-45" : "group-hover:w-5",
+            "block h-[2px] w-6 rounded-full bg-current transition-all duration-500 ease-editorial",
+            open ? "translate-y-[5px] rotate-45" : "group-hover:w-5",
           ].join(" ")}
         />
         <span
           className={[
-            "block h-px w-6 bg-current transition-all duration-500 ease-editorial",
+            "block h-[2px] w-6 rounded-full bg-current transition-all duration-500 ease-editorial",
             open ? "opacity-0" : "group-hover:w-4",
           ].join(" ")}
         />
         <span
           className={[
-            "block h-px w-6 bg-current transition-all duration-500 ease-editorial",
-            open ? "-translate-y-[4px] -rotate-45" : "group-hover:w-5",
+            "block h-[2px] w-6 rounded-full bg-current transition-all duration-500 ease-editorial",
+            open ? "-translate-y-[5px] -rotate-45" : "group-hover:w-5",
           ].join(" ")}
         />
       </button>
