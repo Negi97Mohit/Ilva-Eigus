@@ -194,6 +194,13 @@
   letter-spacing: -0.025em;
 }
 
+@utility display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+
 @utility lede {
   font-family: var(--font-display);
   font-size: clamp(1.05rem, 1.6vw, 1.35rem);
