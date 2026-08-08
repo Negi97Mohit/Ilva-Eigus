@@ -66,11 +66,11 @@ export function SiteHeader() {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         className={[
-          "group fixed right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-70 flex h-12 w-12 flex-col items-center justify-center gap-[7px]",
+          "group fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-70 flex h-12 w-12 flex-col items-center justify-center gap-[7px]",
           "rounded-full border border-paper/25 bg-ink/55 text-paper shadow-lg shadow-ink/20 backdrop-blur-md",
           "transition-[transform,opacity,background-color,border-color] duration-500 ease-editorial",
-          "hover:border-paper/45 hover:bg-ink/70 sm:right-[max(2rem,env(safe-area-inset-right))] sm:top-[max(1.75rem,env(safe-area-inset-top))]",
-          hidden && !open ? "-translate-y-20 opacity-0" : "translate-y-0 opacity-100",
+          "hover:border-paper/45 hover:bg-ink/70 sm:right-[max(2rem,env(safe-area-inset-right))] sm:bottom-[max(1.75rem,env(safe-area-inset-bottom))]",
+          hidden && !open ? "translate-y-20 opacity-0" : "translate-y-0 opacity-100",
         ].join(" ")}
       >
         <span
