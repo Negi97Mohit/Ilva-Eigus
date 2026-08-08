@@ -1,23 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroBw from "@/assets/hero-bw.jpg";
 import portrait1 from "@/assets/portrait-1.jpg";
+import { site, title, description } from "@/config/site";
 import { concerts, bioParagraphs, press, videos } from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ilva Eigus — Violinist" },
-      {
-        name: "description",
-        content:
-          "Swiss-Latvian violinist Ilva Eigus. Season calendar, biography, videos, press and contact.",
-      },
-      { property: "og:title", content: "Ilva Eigus — Violinist" },
-      {
-        property: "og:description",
-        content:
-          "Swiss-Latvian violinist Ilva Eigus. Season calendar, biography, videos, press and contact.",
-      },
+      { title: title() },
+      { name: "description", content: description() },
+      { property: "og:title", content: title() },
+      { property: "og:description", content: description() },
     ],
   }),
   component: Index,
