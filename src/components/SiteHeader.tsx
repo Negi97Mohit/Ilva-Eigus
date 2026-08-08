@@ -85,17 +85,17 @@ export function SiteHeader() {
           {initials}
         </Link>
 
-        <nav className="flex flex-1 flex-col items-center justify-center gap-1">
+        <nav className="flex flex-1 flex-col items-center justify-center gap-4">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
-              className="eyebrow group relative flex items-center justify-center py-4 text-paper/45 transition-colors duration-300 hover:text-paper"
+              className="eyebrow relative flex items-center justify-center px-2 py-3 text-paper/45 transition-colors duration-300 hover:text-paper"
               activeProps={{ className: "text-paper" }}
               style={{ writingMode: "vertical-rl" }}
             >
-              <span className="rotate-180">{l.label}</span>
+              {l.label}
             </Link>
           ))}
         </nav>
@@ -104,7 +104,7 @@ export function SiteHeader() {
           className="index-num uppercase text-paper/30"
           style={{ writingMode: "vertical-rl" }}
         >
-          <span className="rotate-180">{site.tagline}</span>
+          {site.tagline}
         </span>
       </aside>
 
