@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { site } from "@/config/site";
 
 const links = [
   { to: "/bio", label: "Bio" },
@@ -29,7 +30,7 @@ export function SiteHeader() {
             to="/"
             className="font-display text-xl leading-none tracking-tighter text-paper"
           >
-            ILVA EIGUS
+            {site.name.toUpperCase()}
           </Link>
 
           <nav className="hidden gap-8 md:flex">
@@ -60,7 +61,7 @@ export function SiteHeader() {
         <div className="fixed inset-0 z-60 flex flex-col bg-ink px-6 py-6 text-paper">
           <div className="flex items-end justify-between border-b border-paper/15 pb-4">
             <span className="font-display text-xl leading-none tracking-tighter">
-              ILVA EIGUS
+              {site.name.toUpperCase()}
             </span>
             <button
               type="button"

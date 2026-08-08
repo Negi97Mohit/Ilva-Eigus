@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { site, title, description } from "../config/site";
 import { SiteHeader } from "../components/SiteHeader";
 import { SiteFooter } from "../components/SiteFooter";
 
@@ -79,19 +80,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ilva Eigus — Violinist" },
-      {
-        name: "description",
-        content:
-          "Official website of Swiss-Latvian violinist Ilva Eigus: season calendar, biography, video, press and contact.",
-      },
-      { name: "author", content: "Ilva Eigus" },
-      { property: "og:title", content: "Ilva Eigus — Violinist" },
-      {
-        property: "og:description",
-        content:
-          "Official website of Swiss-Latvian violinist Ilva Eigus: season calendar, biography, video, press and contact.",
-      },
+      { title: title() },
+      { name: "description", content: description() },
+      { name: "author", content: site.name },
+      { property: "og:title", content: title() },
+      { property: "og:description", content: description() },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
