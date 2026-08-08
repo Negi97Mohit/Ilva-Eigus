@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHero } from "@/components/PageHero";
-import galleryHero from "@/assets/gallery-hero.jpg";
+import galleryHero from "@/assets/gallery/g4.jpg";
 
 const images = Object.entries(
   import.meta.glob<{ default: string }>("../assets/gallery/*.jpg", {

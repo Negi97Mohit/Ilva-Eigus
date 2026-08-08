@@ -11,7 +11,7 @@ export function PageHero({ image, title, eyebrow, alt }: PageHeroProps) {
       <img
         src={image}
         alt={alt}
-        className="settle h-full w-full object-cover opacity-80 grayscale"
+        className="settle h-full w-full object-cover object-[center_35%] opacity-80 grayscale"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
       <div className="absolute bottom-10 left-6 lg:left-12">
