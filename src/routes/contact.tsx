@@ -64,10 +64,12 @@ function ContactPage() {
         title="Get in touch"
         eyebrow="Contact"
         alt="Portrait of Ilva Eigus"
+        lede="Bookings, press requests and general enquiries."
+        meta="Enquiries"
       />
 
-      <section className="grid gap-16 px-6 py-24 lg:grid-cols-2 lg:gap-24 lg:px-12">
-        <div>
+      <section className="shell section-y grid gap-14 lg:grid-cols-12 lg:gap-20">
+        <div className="lg:col-span-7">
           <h2 className="eyebrow text-ink/40">Enquiries</h2>
           <form onSubmit={onSubmit} className="mt-10 space-y-8">
             <div className="grid gap-8 sm:grid-cols-2">
@@ -161,9 +163,9 @@ function ContactPage() {
           </form>
         </div>
 
-        <div>
+        <div className="lg:col-span-5">
           <h2 className="eyebrow text-ink/40">Direct</h2>
-          <div className="mt-10 space-y-10 text-sm">
+          <div className="mt-8 space-y-8 border-t border-ink/10 pt-8 text-sm">
             <div>
               <p className="eyebrow mb-2 text-ink">Email</p>
               <a href={`mailto:${EMAIL}`} className="rule-link text-ink/70">
@@ -194,7 +196,7 @@ function ContactPage() {
             </div>
           </div>
 
-          <div className="mt-24 border-t border-ink/10 pt-12">
+          <div className="mt-16 border-t border-ink/10 pt-10 md:mt-24">
             <h3 className="eyebrow mb-6 text-ink/40">Supported by</h3>
             <div className="flex flex-wrap gap-x-10 gap-y-4 text-xs font-semibold uppercase tracking-tight text-ink/40">
               {supporters.map((s) => (
